@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import './index.css'
+import './Image.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Roots from "./screen/Roots.jsx";
@@ -10,6 +11,7 @@ import About from "./screen/About.jsx";
 import Register from "./screen/Register.jsx";
 import Login from "./screen/Login.jsx";
 import Detail from "./components/Detail.jsx";
+import Support from "./screen/Support.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,11 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />,
       },
+      {
+        path: "support",
+        element: <Support />,
+      },
+
     ],
   },
 ]);

@@ -1,0 +1,46 @@
+.background{
+     background-image: url("K:\ecommproject\src\assets\Phone-1.jpg"); 
+     height: 400px;
+     background-size: cover;
+}
+.hero-tag{
+    height: 30px;
+    background-color: white;
+    color:black;
+    text-align: center;
+    font-size: 0.85rem;
+}
+.hero-tag a{
+    color: #10b929;
+}
+
+#box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  #box > div {
+    background-color: #fff;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  #box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  #box p {
+    margin: 5px 0;
+  }
+
+
+
+
+
+

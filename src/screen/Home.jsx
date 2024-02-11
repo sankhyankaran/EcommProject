@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { FaSearchengin } from "react-icons/fa";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ function Home() {
       .then((res) => {
         setData(res.data.products);
         setProducts(res.data.products);
-         console.log(res.data.products, "res data ===");
+        console.log(res.data.products, "res data ===");
       })
       .catch((err) => {
         console.log(err);
@@ -34,56 +35,67 @@ function Home() {
 
   return (
     <>
-      <h1>Shopping</h1>
-      <div>
-        <input type="text" placeholder="Search" onChange={Product}></input>
-      </div>
-      <div className="select-product">
-        <label htmlFor="category" className="m-2">
-          Category :
-        </label>
-        <select id="category" name="Filter" onChange={Category}>
-          <option></option>
-          <option value=""> All Product</option>
-          <option value="smartphones">Phone</option>
-          <option value="fragrances">Perfume</option>
-          <option value="skincare">Others</option>
-        </select>
-      </div>
-
-      <span id="Images">
-        {product.map((d, index) => (
-          <span key={index}>
-            <img
-              id="images"
-              src={d.thumbnail}
-              alt="Product image"
-              height="20%"
-              width="20%"
-            />
-            <p>{d.title}</p>
-            <p>{d.price}</p>
-            <p>{d.category}</p>
-          </span>
-        ))}
-      </span>
-
-      {/* Category map array */}
-      <span id="images">
-        {category.map((item, index) => (
-          <span key={index}>
-            <img
-              src={item.thumbnail}
-              alt="Product image"
-              height="20%"
-              width="20%"
-            />
-            <p>{item.title}</p>
-            <p>{item.price}</p>
-            <p>{item.category}</p>
-          </span>
-        ))}
-      </span>
+      <div className="background">
+        <div className="hero-tag">
+          <p>
+            You are on amazon.com.You can also shop on Amazon india for millions
+            of products that fast local delivery .{" "}
+            <a href="https://www.amazon.in/">Welcome to amazon.in </a>
+          </p>
+        </div>
+        <div className="search-bar">
+          <input
+            className="search "
+            type="text"
+            placeholder="Search Amazon"
+            onChange={Product}
+          />
+          <div className="select">
+            <select id="category" name="Filter" onChange={Category}>
+              <option value=""> All Product</option>
+              <option value="smartphones">Phone</option>
+              <option value="laptops">Laptop</option>
+              <option value="fragrances">Perfume</option>
+              <option value="skincare">Skincare</option>
+              <option value="groceries">Others</option>
+            </select>
+          </div>
+        </div>
+        </div>
+      
+          <div id="box">
+            {product.map((d, index) => (
+              <div key={index}>
+                <img
+                  src={d.thumbnail}
+                  alt="Product image"
+                  height="20%"
+                  width="20%"
+                />
+                <p>{d.title}</p>
+                <p>{d.price}</p>
+                <p>{d.category}</p>
+              </div>
+            ))}
+          </div>
+   
+        {/* Category map array */}
+        
+          <div id="box">
+            {category.map((item, index) => (
+              <li key={index}>
+                <img
+                  src={item.thumbnail}
+                  alt="Product image"
+                  height="20%"
+                  width="20%"
+                />
+                <p>{item.title}</p>
+                <p>{item.price}</p>
+                <p>{item.category}</p>
+              </li>
+            ))}
+        </div>
     </>
   );
 }
