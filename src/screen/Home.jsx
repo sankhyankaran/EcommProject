@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FaSearchengin } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -13,6 +14,7 @@ function Home() {
       .then((res) => {
         setData(res.data.products);
         setProducts(res.data.products);
+
         console.log(res.data.products, "res data ===");
       })
       .catch((err) => {
@@ -39,7 +41,7 @@ function Home() {
         <div className="hero-tag">
           <p>
             You are on amazon.com.You can also shop on Amazon india for millions
-            of products that fast local delivery .{" "}
+            of products that fast local delivery .
             <a href="https://www.amazon.in/">Welcome to amazon.in </a>
           </p>
         </div>
@@ -61,41 +63,39 @@ function Home() {
             </select>
           </div>
         </div>
-        </div>
-      
-          <div id="box">
-            {product.map((d, index) => (
-              <div key={index}>
-                <img
-                  src={d.thumbnail}
-                  alt="Product image"
-                  height="20%"
-                  width="20%"
-                />
-                <p>{d.title}</p>
-                <p>{d.price}</p>
-                <p>{d.category}</p>
-              </div>
-            ))}
-          </div>
-   
-        {/* Category map array */}
-        
-          <div id="box">
-            {category.map((item, index) => (
-              <li key={index}>
-                <img
-                  src={item.thumbnail}
-                  alt="Product image"
-                  height="20%"
-                  width="20%"
-                />
-                <p>{item.title}</p>
-                <p>{item.price}</p>
-                <p>{item.category}</p>
-              </li>
-            ))}
-        </div>
+      </div>
+
+      <div id="box">
+        {product.map((d, index) => (
+          <Link className="link" to={`/detail/${d.id}`} key={index}>
+            <img
+              src={d.thumbnail}
+              alt="Product image"
+              height="20%"
+              width="20%"
+            />
+            <p>{d.title}</p>
+            <p>₹{d.price}</p>
+            <p>{d.category}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div id="box">
+        {category.map((item, index) => (
+          <Link key={index}>
+            <img
+              src={item.thumbnail}
+              alt="Product image"
+              height="20%"
+              width="20%"
+            />
+            <p>{item.title}</p>
+            <p>₹{item.price}</p>
+            <p>{item.category}</p>
+          </Link>
+        ))}
+      </div>
     </>
   );
 }

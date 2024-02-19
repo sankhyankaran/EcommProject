@@ -1,13 +1,31 @@
+import { useFormik } from "formik";
 import React from "react";
 
 function Register() {
+  const formInitialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const { handleSubmit, handleChange, values } = useFormik({
+    initialValues: formInitialValues,
+    onSubmit: (values, action) => {
+      console.log(values);
+      action.resetForm();
+    },
+  });
+
   return (
     <>
       <div className="card text-center mx-auto">
         <div className="card-header bg-info text-white">New User</div>
+        <form onSubmit={handleSubmit}>
         <div className="card-body">
           <div className="form-group row">
-            <label className="col-sm-4" for="txtfirstname">
+            <label className="col-sm-4 col-form-label" htmlFor="txtfirstname">
               First Name
             </label>
             <div className="col-sm-6">
@@ -17,11 +35,14 @@ function Register() {
                 placeholder="Enter first Name"
                 className="form-control"
                 id="txtfirstname"
+                onChange={handleChange}
+                value={values.firstName}
               />
             </div>
           </div>
-          <div className="form-group row m-2">
-            <label className="col-sm-4" for="txtlastname">
+          <br />
+          <div className="form-group row">
+            <label className="col-sm-4 col-form-label" htmlFor="txtlastname">
               Last Name
             </label>
             <div className="col-sm-6">
@@ -31,11 +52,14 @@ function Register() {
                 placeholder="Enter last Name"
                 className="form-control"
                 id="txtlastname"
+                onChange={handleChange}
+                value={values.lastName}
               />
             </div>
           </div>
-          <div className="form-group row m-2">
-            <label className="col-sm-4" for="txtemail">
+          <br />
+          <div className="form-group row">
+            <label className="col-sm-4 col-form-label" htmlFor="txtemail">
               Email
             </label>
             <div className="col-sm-6">
@@ -45,11 +69,14 @@ function Register() {
                 placeholder="Enter email"
                 className="form-control"
                 id="txtemail"
+                onChange={handleChange}
+                value={values.email}
               />
             </div>
           </div>
+          <br />
           <div className="form-group row">
-            <label className="col-sm-4" for="txtpassword">
+            <label className="col-sm-4 col-form-label" htmlFor="txtpassword">
               Password
             </label>
             <div className="col-sm-6">
@@ -59,11 +86,16 @@ function Register() {
                 placeholder="Enter password"
                 className="form-control"
                 id="txtpassword"
+                onChange={handleChange}
+                value={values.password}
               />
             </div>
           </div>
-          <div className="form-group row m-2">
-            <label className="col-sm-4" for="txtconfirmPassword">
+          <br />
+          <div className="form-group row">
+            <label
+              className="col-sm-4 col-form-label"
+              htmlFor="txtconfirmPassword">
               Confirm Password
             </label>
             <div className="col-sm-6">
@@ -73,14 +105,19 @@ function Register() {
                 placeholder="Confirm password"
                 className="form-control"
                 id="txtconfirmPassword"
+                onChange={handleChange}
+                value={values.confirmPassword}
               />
             </div>
           </div>
+          <br />
         </div>
-        <div class="card-footer text-muted">
+        <div className="card-footer text-muted">
           <button className="btn btn-info">Register</button>
         </div>
+        </form>
       </div>
+     
     </>
   );
 }

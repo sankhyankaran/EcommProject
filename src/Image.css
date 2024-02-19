@@ -20,24 +20,97 @@
     justify-content: space-around;
   }
   
-  #box > div {
-    background-color: #fff;
+  .link{
+    background-color: #ffffff;
+    color: rgb(8, 8, 8);
     width: 200px;
     padding: 10px;
+    text-decoration: none;
     margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 40px 0px rgba(14, 13, 13, 0.1);
+
   }
-  
   #box img {
     width: 100%;
-    height: auto;
+    height: 100px;
     border-radius: 5px;
   }
   
   #box p {
     margin: 5px 0;
+    text-transform: capitalize;
   }
+
+  /* Register */
+  .card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  
+  .card-header {
+    background-color: #17a2b8;
+    color: #fff;
+    
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+  }
+  /* //details */
+
+  #image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: #ffffff;
+    color: rgb(8, 8, 8);
+    width: 300px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 40px 0px rgba(18, 18, 18, 0.1);
+  }
+  
+  .discription {
+    margin-top: 20px;
+  }
+  
+  .discription ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .discription ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Add additional styles as needed */
+
+  /* loader */
+  .detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #loader {
+    text-align: center;
+  }
+  /* star */
+  .icon{
+    color: yellow;
+  }
+  
+ 
+
+  
+
+  
 
 
 
